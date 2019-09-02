@@ -3,8 +3,11 @@ package com.example.listview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.listview.adpter.MeuAdpter;
 import com.example.listview.modelos.Tarefa;
@@ -29,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapterTarefa = new MeuAdpter(MainActivity.this,(ArrayList<Tarefa>)tarefas);
         listView.setAdapter(arrayAdapterTarefa);
 
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast toast = Toast.makeText(getApplicationContext(),"Teste",Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
     }
 
     public void criarTarefas(){
