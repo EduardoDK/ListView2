@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.listview.MainActivity;
 import com.example.listview.R;
 import com.example.listview.modelos.Tarefa;
 
@@ -47,6 +48,22 @@ public class MeuAdpter extends ArrayAdapter<Tarefa> {
         nome.setText(tarefaAtual.getNome());
         TextView status = listItem.findViewById(R.id.tarefa_status);
         status.setText(tarefaAtual.getStatus().toString());
+
+
+
+       if(!tarefaAtual.getStatus()){
+           TextView concluir = listItem.findViewById(R.id.tarefa_status);
+           concluir.setText("Falta Terminar");
+           concluir.setTextColor(context.getResources().getColor(R.color.Terminar));
+
+       }
+       else{
+           TextView concluir = listItem.findViewById(R.id.tarefa_status);
+           concluir.setText("Concluido");
+           concluir.setTextColor(context.getResources().getColor(R.color.Concluir));
+
+
+       }
 
 
 
